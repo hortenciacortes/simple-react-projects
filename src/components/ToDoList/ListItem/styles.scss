@@ -1,0 +1,55 @@
+.all-tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+
+  .task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    
+    label {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: start;
+      font-size: 20px;
+      padding: 10px;
+      position: relative;
+
+      &.message::before {
+        content: 'Aperte enter para salvar';
+        position: absolute;
+        top: 60px;
+        font-size: 14px;
+        right: 30px;
+        color: mediumaquamarine;
+      }
+
+      &, input.input {
+        width: 100%;
+        background-color: transparent;
+      }
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+
+    div {
+      display: flex;
+
+      img {
+        width: 24px;
+        margin: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

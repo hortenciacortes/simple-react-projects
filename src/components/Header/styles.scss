@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  grid-column: 2;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 140px;
+
+    img {
+      width: 26px;
+    }
+  }
+}
+
