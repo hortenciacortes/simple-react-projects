@@ -34,11 +34,18 @@
         background-color: transparent;
       }
 
-      input[type="checkbox"] {
+      .checkbox {
         width: 20px;
         height: 20px;
-        margin-right: 10px;
+        border: none;
+        border-radius: 4px;
         cursor: pointer;
+
+        .checkbox-icon {
+          width: 20px;
+          height: 20px;
+          color: #61DAFB;
+        }
       }
     }
 

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Check } from "phosphor-react";
+import * as Checkbox from '@radix-ui/react-checkbox';
 import './styles.scss';
 
 export function ListItem({ task, indexItem, isChecked, list, setList }) {
@@ -76,11 +78,15 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
             onChange={e => setUpdateTask(e.target.value)}
             onKeyUp={e => handleKeyUp(e, indexItem)}
           />
-          <input 
-            type='checkbox' name='tasks' id='isDone'
+          <Checkbox.Root
+            className="checkbox"
             checked={isChecked}
-            onChange={ (e) => handleCheck(e.target.checked, indexItem) }
-          />
+            onCheckedChange={(checked) => handleCheck(checked, indexItem) }
+          >
+            <Checkbox.Indicator>
+            {isChecked === true && <Check className="checkbox-icon" weight="bold" />}
+            </Checkbox.Indicator>
+          </Checkbox.Root>
         </label>
         <div>
           <img src="src/assets/edit.png" alt="Icone de edição" onClick={ () => {handleEdit(indexItem)} } />
