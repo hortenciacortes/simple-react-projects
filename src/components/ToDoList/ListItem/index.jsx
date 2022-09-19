@@ -35,7 +35,7 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
       const inputSelected = document.getElementById(id)
       inputSelected.parentElement.classList.remove('message');
       inputSelected.readOnly = true;
-      inputSelected.style = `border-color: transparent; text-decoration: ${list[id].isCheck ? 'line-through' : 'none'}`;
+      inputSelected.style = `border-color: transparent; text-decoration: ${list[id].isChecked ? 'line-through' : 'none'}`;
     }
   }
 
