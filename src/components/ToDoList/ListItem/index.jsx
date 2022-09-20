@@ -7,30 +7,30 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
   const [updateTask, setUpdateTask] = useState(task);
   
   function handleEdit(id) {
-    document.querySelectorAll('input[type="text"].input-task').forEach((item, i) => {
+    document.querySelectorAll('input[type="text"].input-task').forEach((item) => {
       item.readOnly = true
-      item.style = `border-color: transparent; text-decoration: ${list[i].isChecked ? 'line-through' : 'none'}`;
+      item.style = 'border-color: transparent';
       item.parentElement.classList.remove('message');
     })
     handleInput(id, true);
   }
   
   function handleInput(id, isEdit) {
-    const inputSelected = document.getElementById(id)
+    const inputSelected = document.getElementById(id);
     inputSelected.parentElement.classList.toggle('message');
     inputSelected.readOnly = !isEdit;
     inputSelected.focus();
-    inputSelected.style = `border-color: ${isEdit ? '#58c4e2' : 'transparent'}; text-decoration: ${list[id].isChecked ? 'line-through' : 'none'}`
+    inputSelected.style = `border-color: ${isEdit ? '#468a9d63' : 'transparent'}`;
   }
 
   function handleKeyUp(e, id) {
     if (e.code === 'Enter' || e.code === 'NumpadEnter') {
-      const newList = list.map((item, index) => {
-        updateTask === '' && id === index && setUpdateTask(item.task);
+      const newList = list.map((item) => {
+        updateTask === '' && item.id === id && setUpdateTask(item.task);
         
         return {
           id: item.id,
-          task: id === index ? updateTask : item.task,
+          task: item.id === id ? updateTask : item.task,
           isChecked: item.isChecked
         }
       })
@@ -41,8 +41,7 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
   }
 
   function handleDelete(id) {
-    console.log(id)
-    const newList = list.filter((item, index) => index !== id).map((item) => {
+    const newList = list.filter((item) => item.id !== id).map((item) => {
       return {
         id: item.id,
         task: item.task,
@@ -53,44 +52,40 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
   }
 
   function handleCheck(isChecked, id) {
-    const newList = list.map((item, index) => {
+    const newList = list.map((item) => {
       return {
         id: item.id,
         task: item.task,
-        isChecked: index == id ? isChecked : item.isChecked
+        isChecked: item.id == id ? isChecked : item.isChecked
       }
     })
     setList(newList);
   }
 
   return (
-    <div className='all-tasks'>
-      <div className='task'>
-        <div className='inputs'>
-          <input 
-            type="text" value={updateTask} className="input input-task" id={indexItem}
-            readOnly
-            style={{
-              textDecoration: isChecked ? 'line-through' : 'none',
-              borderColor: 'transparent'
-            }}
-            onChange={e => setUpdateTask(e.target.value)}
-            onKeyUp={e => handleKeyUp(e, indexItem)}
-          />
-          <Checkbox.Root
-            className="checkbox"
-            checked={isChecked}
-            onCheckedChange={(checked) => handleCheck(checked, indexItem) }
-          >
-            <Checkbox.Indicator>
-              {isChecked === true && <Check className="checkbox-icon" weight="bold" />}
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-        </div>
-        <div>
-          <img src="src/assets/edit.png" alt="Icone de edição" onClick={ () => {handleEdit(indexItem)} } />
-          <img src="src/assets/delete.png" alt="Icone de exclusão" onClick={ () => handleDelete(indexItem) } />
-        </div>
+    <div className={isChecked ? 'task isChecked' : 'task'}>
+      
+      <div className='inputs'>
+        <input
+          type="text" value={updateTask} className="input input-task" id={indexItem}
+          readOnly
+          style={{borderColor: 'transparent'}}
+          onChange={e => setUpdateTask(e.target.value)}
+          onKeyUp={e => handleKeyUp(e, indexItem)}
+        />
+        <Checkbox.Root
+          className="checkbox"
+          checked={isChecked}
+          onCheckedChange={(checked) => handleCheck(checked, indexItem) }
+        >
+          <Checkbox.Indicator>
+            {isChecked && <Check className="checkbox-icon" weight="bold" />}
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+      </div>
+      <div>
+        <img src="src/assets/edit.png" alt="Icone de edição" onClick={ () => {handleEdit(indexItem)} } />
+        <img src="src/assets/delete.png" alt="Icone de exclusão" onClick={ () => handleDelete(indexItem) } />
       </div>
     </div>
   )

@@ -1,15 +1,21 @@
-.all-tasks {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
+
 
   .task {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
+    width: 100%;
+    background-color: #61dafb0a;
+    border-radius: 8px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+    box-shadow: 1px 1px 1px#61dafbb9;
+    
+    &.isChecked {
+      .input-task {
+        text-decoration: line-through;
+      }
+    }
     
     div.inputs {
       display: flex;
@@ -17,13 +23,12 @@
       align-items: center;
       justify-content: start;
       font-size: 20px;
-      padding: 10px;
       position: relative;
 
       &.message::before {
         content: 'Aperte enter para salvar';
         position: absolute;
-        top: 60px;
+        top: 36px;
         font-size: 14px;
         right: 30px;
         color: mediumaquamarine;
@@ -32,6 +37,10 @@
       &, input.input {
         width: 100%;
         background-color: transparent;
+      }
+
+      input.input {
+        margin: 10px;
       }
 
       .checkbox {
@@ -59,4 +68,3 @@
       }
     }
   }
-}

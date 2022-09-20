@@ -1,10 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import uuid from 'react-uuid';
+import { ListChecks, ListBullets } from 'phosphor-react';
+
 import { ListItem } from '../../components/ToDoList/ListItem';
 import { Storage } from '../../storage';
 import './styles.scss';
 
 export function ToDoList() {
-  const [list, setList] = useState(Storage.get());
+  const [list, setList] = useState(Storage.get('tasksList'));
+  const [listChecked, setListChecked] = useState([]);
+  const [listToDo, setListToDo] = useState([]);
+
+  useEffect(() => {
+    function handleList() {
+      setListChecked([]);
+      setListToDo([]);
+  
+      list.map(item => {
+        if(item.isChecked) {
+          setListChecked(prevent => [...prevent, item]);
+        }else {
+          setListToDo(prevent => [...prevent, item]);
+        }
+      })
+    }
+    
+    handleList()
+  }, [list])
 
   function addNewTask(e) {
     e.preventDefault();
@@ -13,7 +35,7 @@ export function ToDoList() {
       if (inputValue.value !== '') {
         const newTask = inputValue.value;
         setList(prevent => [...prevent, {
-          id: list.length ===  0 ? 0 : list[list.length -1].id + 1, 
+          id: uuid(), 
           task: newTask, 
           isChecked: false
         }]);
@@ -26,7 +48,6 @@ export function ToDoList() {
   }
   
   Storage.set('tasksList', list)
-  console.log(list)
 
   return (
     <section className='container'>
@@ -35,7 +56,6 @@ export function ToDoList() {
         <h2>Lista de Tarefas</h2>
       </div>
       
-    <div className='list-item'>
       <div className='new-task'>
         <input 
           type='text' className='input' 
@@ -43,14 +63,41 @@ export function ToDoList() {
         />
         <button className='submit' onClick={addNewTask}>Adicionar</button>
       </div>
-      {list.map((item, index) => (
-        <ListItem key={item.id}
-          task={item.task} indexItem={index} 
-          isChecked={item.isChecked}
-          list={list}
-          setList={setList}
-        />
-      ))}
+
+    <div className='list-item'>
+      <div className='contain-tasks'>
+        <div className='all-tasks'>
+          <h3> 
+            <ListBullets size={32} weight="bold" /> 
+            Tarefas pendentes
+          </h3>
+
+          {listToDo.map((item, index) => (
+            <ListItem key={item.id}
+              task={item.task} indexItem={item.id} 
+              isChecked={false}
+              list={list}
+              setList={setList}
+            />
+          ))}
+        </div>
+
+        <div className='all-tasks'>
+          <h3> 
+            <ListChecks size={32} weight="bold" /> 
+            Tarefas concluídas
+          </h3>
+
+          {listChecked.map((item) => (
+            <ListItem key={item.id}
+              task={item.task} indexItem={item.id} 
+              isChecked={true}
+              list={list}
+              setList={setList}
+            />
+          ))}
+        </div>
+      </div>
     </div>
     </section>
   )
