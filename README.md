@@ -22,3 +22,10 @@ Funções: Adicionar, editar, concluir e remover uma tarefa e uma barra de progr
 	
 	useState, localStorage, react-uuid, @ramonak/react-progress-bar, phosphor-react, @radix-ui/react-checkbox
 
+**2 - Cronômetro**
+
+![Imagem do projeto](https://github.com/hortenciacortes/simple-react-projects/blob/main/src/assets/project-stopwatch.png?raw=true)
+
+Funções: Iniciar, pausar ou resetar o tempo.
+	
+	react-timer-hook, phosphor-react
