@@ -51,8 +51,12 @@ button.submit, input.input {
   transition: border-color 0.25s;
 }
 
+button.submit {
+  background-color: #04a0d9;
+}
+
 button.submit:hover {
-  border-color: #58c4e2;
+  background-color: #0495ca;
 }
 button:focus, button:focus-visible,
 input.input:focus, input.input:focus-visible {

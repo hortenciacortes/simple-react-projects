@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { ListChecks, ListBullets, ChartBar, FilePlus } from 'phosphor-react';
 import uuid from 'react-uuid';
-import { ListChecks, ListBullets } from 'phosphor-react';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 import { ListItem } from '../../components/ToDoList/ListItem';
 import { Storage } from '../../storage';
@@ -56,17 +57,25 @@ export function ToDoList() {
         <h2>Lista de Tarefas</h2>
       </div>
       
-      <div className='new-task'>
-        <input 
-          type='text' className='input' 
-          onKeyUp={e => addNewTask(e)}
-        />
-        <button className='submit' onClick={addNewTask}>Adicionar</button>
-      </div>
-
     <div className='list-item'>
+      
       <div className='contain-tasks'>
         <div className='all-tasks'>
+          
+          <div className='new-task header-task'>
+            <h4>
+              <FilePlus size={26} color="#04a0d9" weight="bold" />
+              Adicionar nova tarefa
+            </h4>
+            <div className="form">
+              <input
+                type='text' className='input'
+                onKeyUp={e => addNewTask(e)}
+              />
+              <button className='submit' onClick={addNewTask}>Adicionar</button>
+            </div>
+          </div>
+
           <h3> 
             <ListBullets size={32} weight="bold" /> 
             Tarefas pendentes
@@ -83,6 +92,18 @@ export function ToDoList() {
         </div>
 
         <div className='all-tasks'>
+          <div className='header-task'>
+            <h4>
+              <ChartBar size={26} color="#04a0d9" weight="bold" /> 
+              Progresso
+            </h4>
+
+            <ProgressBar 
+              completed={Number((listChecked.length * 100 / list.length).toFixed())} 
+              bgColor="#04A0D9"
+            />
+          </div>
+          
           <h3> 
             <ListChecks size={32} weight="bold" /> 
             Tarefas concluídas
