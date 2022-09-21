@@ -4,36 +4,53 @@
   align-items: center;
   justify-content: center;
   
-  div.card {
-    box-shadow: 0 0 10px #61daf8;
-  }
-  
   .card {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 70px;
-    font-size: 24px;
-    border: 1px solid #61DAFB;
-    border-radius: 10px;
-    padding: 30px;
+    background-color: rgba(97, 218, 251, 0.0392156863);
+    padding: 15px;
+  }
+  
+  div.card {
+    width: 50%;
+    font-size: 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #61daf8;
+
+    span {
+      padding: 0px 5px;
+      line-height: normal;
+    }
+
+    span::after {
+      content: 'h';
+      font-size: 28px;
+    }
+
+    span:nth-child(2)::after {
+      content: 'm';
+    }
+
+    span:nth-child(3)::after {
+      content: 's';
+    }
   }
 
   .buttons {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 60%;
     margin-top: 50px;
     gap: 20px;
 
     button {
-      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 1px 1px 1px rgb(97 218 251 / 73%);
       cursor: pointer;
 
       &:hover {
-        color: #61DAFB;
+        background-color: rgba(97, 218, 251, 0.218);
       }
     }
   }

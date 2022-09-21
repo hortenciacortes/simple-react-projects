@@ -1,3 +1,4 @@
+import { ArrowCounterClockwise, Pause, Play } from 'phosphor-react';
 import { useStopwatch } from 'react-timer-hook';
 import './styles.scss';
 
@@ -6,7 +7,7 @@ export function Stopwatch() {
     seconds,
     minutes,
     hours,
-    days,
+    isRunning,
     start,
     pause,
     reset,
@@ -17,22 +18,23 @@ export function Stopwatch() {
     <section className='container'>
       <div className='title'>
         <img src='src/assets/stopwatch.png' alt='Imagem de uma mão segurando um relógio' />
-        <h2>Stopwatch</h2>
+        <h2>Cronômetro</h2>
       </div>
 
       <div className="contain-stopwatch">
 
         <div className="card">
-          <span>{days < 10 ? `0${days}` : days}</span>:
-          <span>{hours < 10 ? `0${hours}` : hours}</span>:
-          <span>{minutes < 10 ? `0${minutes}` : minutes}</span>:
-          <span>{seconds < 10 ? `0${seconds}` : seconds}</span>
+          <span>{hours < 10 ? `0${hours}` : hours}</span>
+          <span>: {minutes < 10 ? `0${minutes}` : minutes}</span>
+          <span>: {seconds < 10 ? `0${seconds}` : seconds}</span>
         </div>
 
         <div className='buttons'>
-          <button className="card" onClick={start}>Start</button>
-          <button className="card" onClick={pause}>Stop</button>
-          <button className="card" onClick={reset}>Reset</button>
+          {isRunning ? 
+            <button className="card" onClick={pause}><Pause size={26} color="#04a0d9" weight="bold" /></button> :
+            <button className="card" onClick={start}><Play size={26} color="#04a0d9" weight="bold" /></button>
+          }
+          <button className="card" onClick={() => reset(false, false)}><ArrowCounterClockwise size={26} color="#04a0d9" weight="bold" /></button>
         </div>
 
       </div>
