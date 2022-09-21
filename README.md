@@ -14,4 +14,11 @@
 
 ### 💻 Sobre o Projeto<a id="sobre-projeto"></a>
 
-1 - 
+**1 - Lista de Tarefas** 
+
+![Imagem do projeto](https://github.com/hortenciacortes/simple-react-projects/blob/main/src/assets/project-todo.png?raw=true)
+
+Funções: Adicionar, editar, concluir e remover uma tarefa e uma barra de progresso com a porcentagem de tarefas realizadas.
+	
+	useState, localStorage, react-uuid, @ramonak/react-progress-bar, phosphor-react, @radix-ui/react-checkbox
+
