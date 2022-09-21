@@ -70,6 +70,7 @@ export function ToDoList() {
             <div className="form">
               <input
                 type='text' className='input'
+                placeholder='Nova tarefa'
                 onKeyUp={e => addNewTask(e)}
               />
               <button className='submit' onClick={addNewTask}>Adicionar</button>
