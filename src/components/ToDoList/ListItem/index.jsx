@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check } from "phosphor-react";
+import { Check, PencilLine, Trash } from "phosphor-react";
 import * as Checkbox from '@radix-ui/react-checkbox';
 import './styles.scss';
 
@@ -84,8 +84,16 @@ export function ListItem({ task, indexItem, isChecked, list, setList }) {
         </Checkbox.Root>
       </div>
       <div>
-        <img src="src/assets/edit.png" alt="Icone de edição" onClick={ () => {handleEdit(indexItem)} } />
-        <img src="src/assets/delete.png" alt="Icone de exclusão" onClick={ () => handleDelete(indexItem) } />
+        <PencilLine 
+          className='icon'
+          size={26} color="#04A0D9" weight="bold" 
+          onClick={() => {handleEdit(indexItem)}} 
+        />
+        <Trash
+          className='icon' 
+          size={26} color="#843453" weight="bold"
+          onClick={() => handleDelete(indexItem)} 
+        />
       </div>
     </div>
   )
