@@ -9,7 +9,7 @@ import './styles.scss';
 
 export function ToDoList() {
   const [list, setList] = useState(Storage.get('tasksList'));
-  const checked = list.filter(item => item.isChecked).length;
+  const numberTaskDone = list.filter(item => item.isDone).length;
   
   function addNewTask(e) {
     e.preventDefault();
@@ -20,7 +20,7 @@ export function ToDoList() {
         setList(prevent => [...prevent, {
           id: uuid(), 
           task: newTask, 
-          isChecked: false
+          isDone: false
         }]);
         e.target.blur();
         inputValue.value = '';
@@ -63,10 +63,10 @@ export function ToDoList() {
             Tarefas pendentes
           </h3>
 
-          {list.filter(task => !task.isChecked).map((task) => (
+          {list.filter(task => !task.isDone).map((task) => (
             <ListItem key={task.id}
               task={task.task} indexItem={task.id} 
-              isChecked={false}
+              isDone={false}
               list={list}
               setList={setList}
             />
@@ -81,7 +81,7 @@ export function ToDoList() {
             </h4>
 
             <ProgressBar 
-              completed={Number((checked * 100 / list.length).toFixed())} 
+              completed={Number((numberTaskDone * 100 / list.length).toFixed())} 
               bgColor="#04A0D9"
             />
           </div>
@@ -91,10 +91,10 @@ export function ToDoList() {
             Tarefas concluídas
           </h3>
 
-          {list.filter(task => task.isChecked).map((task) => (
+          {list.filter(task => task.isDone).map((task) => (
             <ListItem key={task.id}
               task={task.task} indexItem={task.id} 
-              isChecked={true}
+              isDone={true}
               list={list}
               setList={setList}
             />
