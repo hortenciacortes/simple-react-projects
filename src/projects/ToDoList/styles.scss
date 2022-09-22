@@ -6,7 +6,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding-bottom: 60px;
+    flex-wrap: wrap;
 
     img {
       width: 60px;
@@ -23,19 +25,19 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-top: 50px;
+      gap: 20px;
 
       .header-task {
         display: grid;
         width: 100%;
         height: 120px;
+        gap: 20px;
       }
       
       h3, h4 {
         display: flex;
         align-items: center;
         gap: 5px;
-        margin: 20px 0px;
       }
     }
   }
@@ -47,6 +49,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 10px;
     }
 
     input {
@@ -56,6 +59,21 @@
     input, button {
       padding-top: 0.8em;
       padding-bottom: 0.8em;
+    }
+  }
+  
+  @media (max-width: 950px) {
+    .contain-tasks, .form {
+      flex-wrap: wrap;
+      gap: 50px;
+
+      .tasks .header-task {
+        height: auto;
+      }
+  
+      button.submit {
+        width: 100%;
+      }
     }
   }
 }

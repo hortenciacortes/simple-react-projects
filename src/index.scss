@@ -36,7 +36,6 @@ a {
 
 input.input {
   width: 50%;
-  margin-right: 10px;
 }
 
 button.submit, input.input {
@@ -71,13 +70,18 @@ input.input:focus, input.input:focus-visible {
 
 @media (max-width          : 1350px) {
   .grid-pattern {
+    grid-template          : auto / 1fr 90% 1fr;
+  }
+}
+@media (max-width          : 950px) {
+  .grid-pattern {
     grid-template          : auto / 1fr 80% 1fr;
   }
 }
 
 @media (max-width          : 600px) {
   .grid-pattern {
-    grid-template          : auto / 1fr 92% 1fr;
+    grid-template          : auto / 1fr 90% 1fr;
   }
 }
 
