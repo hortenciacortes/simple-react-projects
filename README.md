@@ -29,3 +29,39 @@ Funções: Adicionar, editar, concluir e remover uma tarefa e uma barra de progr
 Funções: Iniciar, pausar ou resetar o tempo.
 	
 	react-timer-hook, phosphor-react
+
+### 🎨  Layout <a id="layout"></a>
+
+🚧 Em breve o layout completo
+
+### 🚀  Como executar o projeto <a id="executar-projeto"></a>
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:  [Git](https://git-scm.com/),  [Node.js](https://nodejs.org/pt-br/).
+
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+
+#### 🎲Rodando a Aplicação
+
+	# Clone este repositório
+	    git clone https://github.com/hortenciacortes/simple-react-projects
+	# Acesse a pasta do projeto no terminal
+	    cd simple-react-projects
+    	# Instale a dependência do npm
+	    npm install
+	# Execute a aplicação em modo de desenvolvimento
+    	    npm start
+    	# Irá aparecer uma mensagem com a informação de onde o servidor está rodando
+	    ex. Local: http://127.0.0.1:5173/
+	    Segure a tecla ctrl e clique em cima para abrir uma aba no seu navegador com a aplicação 
+	    ou digite na barra do seu navegador o endereço informado.
+
+### 🛠 Tecnologias <a id="tecnologias"></a>
+
+Esse projeto está sendo desenvolvido com as seguintes tecnologias:
+
+- ReactJS
+- SCSS
+
+### 👧 Autora <a id="autora"></a>
+
+Feito com 💖 por Hortência Côrtes 👩‍💻
