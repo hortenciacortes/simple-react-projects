@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 50px;
   
   .card {
     display: flex;
@@ -13,7 +14,6 @@
   }
   
   .timer {
-    width: 50%;
     font-size: 60px;
     border-radius: 8px;
     box-shadow: 0 0 10px #61daf8;
@@ -21,6 +21,7 @@
     span {
       padding: 0px 5px;
       line-height: normal;
+      white-space: nowrap;
     }
 
     span::after {
@@ -40,7 +41,6 @@
   .buttons {
     display: flex;
     align-items: center;
-    margin-top: 50px;
     gap: 20px;
 
     button {
@@ -52,6 +52,13 @@
       &:hover {
         background-color: rgba(97, 218, 251, 0.218);
       }
+    }
+  }
+
+  @media (max-width: 450px) {
+    .timer {
+      font-size: 34px;
+      padding: 12px 8px;
     }
   }
 }
