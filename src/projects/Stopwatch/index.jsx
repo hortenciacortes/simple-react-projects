@@ -14,7 +14,7 @@ export function Stopwatch() {
   } = useStopwatch({ autoStart: false });
 
   return (
-    <section className='container'>
+    <section className='container' id='cronometro'>
 
       <div className='title'>
         <img src='src/assets/stopwatch.png' alt='Imagem de uma mão segurando um relógio' />

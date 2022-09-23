@@ -1,3 +1,17 @@
+section.grid-pattern {
+  grid-column: 1 / 4;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  &.sticky {
+    background-color: #242424;
+    box-shadow: 0px 1px 10px rgb(97 218 251 / 73%);
+    z-index: 1;
+  }
+}
 .header {
   display: flex;
   align-items: center;
@@ -5,7 +19,7 @@
   gap: 20px;
   flex-wrap: wrap;
   grid-column: 2;
-  padding-top: 40px;
+  padding: 30px;
 
   .logo {
     display: flex;
@@ -16,6 +30,14 @@
     img {
       width: 26px;
     }
+  }
+
+  .projects {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    
   }
 }
 

@@ -33,7 +33,7 @@ export function ToDoList() {
   Storage.set('tasksList', list)
 
   return (
-    <section className='container'>
+    <section className='container' id='lista-de-tarefas'>
 
       <div className='title'>
         <img src='src/assets/to-do-list.png' alt='Imagem de um papel escrito TO DO' />
