@@ -34,8 +34,21 @@ a {
   }
 }
 
-input.input {
-  width: 50%;
+.loading-anchor {
+  position                 : relative;
+
+  &.loading {
+    &::before {
+      position         : absolute;
+      top              : 35px;
+      right            : 10px;
+  
+      content              : '';
+      background           : url("./assets/loader.svg") center/contain no-repeat;
+      width                : 30px;
+      height               : 30px;
+    }
+  }
 }
 
 button.submit, input.input {
