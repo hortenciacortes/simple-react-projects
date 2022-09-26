@@ -30,6 +30,14 @@ Funções: Iniciar, pausar ou resetar o tempo.
 	
 	react-timer-hook, phosphor-react
 
+**3 - Consumindo uma API de CEPs**
+
+![Imagem do projeto](https://github.com/hortenciacortes/simple-react-projects/blob/main/src/assets/project-apicep.png?raw=trues)
+
+Funções: Buscar as informações na api [ViaCEP](https://viacep.com.br/) e preencher os campos do endereço.
+	
+	fetch, useState, useEffect
+
 ### 🎨  Layout <a id="layout"></a>
 
 🚧 Em breve o layout completo
