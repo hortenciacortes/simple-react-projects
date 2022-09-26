@@ -1,6 +1,7 @@
 import { Header } from './components/Header';
 import { ToDoList } from './projects/ToDoList';
 import { Stopwatch } from './projects/Stopwatch';
+import { ApiCep } from './projects/ApiCep';
 
 function App() {  
   return (
@@ -8,7 +9,7 @@ function App() {
       <Header />
       <ToDoList />
       <Stopwatch />
-      <ToDoList /> 
+      <ApiCep />
     </div>
   )
 }
