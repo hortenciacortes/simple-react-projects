@@ -4,7 +4,7 @@ import uuid from 'react-uuid';
 import ProgressBar from "@ramonak/react-progress-bar";
 
 import { ListItem } from '../../components/ToDoList/ListItem';
-import { Storage } from '../../storage';
+import { Storage } from '../../server';
 import './styles.scss';
 
 export function ToDoList() {
