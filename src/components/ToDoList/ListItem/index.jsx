@@ -24,7 +24,7 @@ export function ListItem({ task, indexItem, isDone, list, setList }) {
   }
 
   function handleUpdateTask(e, id) {
-    if (e.code === 'Enter' || e.code === 'NumpadEnter' || e._reactName) {
+    if (e.code === 'Enter' || e.code === 'NumpadEnter' || e._reactName === 'onClick') {
       const newList = list.map((item) => {
         updateTask === '' && item.id === id && setUpdateTask(item.task);
         
